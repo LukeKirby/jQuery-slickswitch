@@ -1,0 +1,16 @@
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 30px;
+	height: 17px;
+	cursor: pointer;
+	background: url(../icon/slickswitch.png) 0 0 no-repeat;
+}
+
+.switch .ss-on {
+	position: absolute;
+	display: block;
+	width: 30px;
+	height: 17px;
+	background: url(../icon/slickswitch.png) -30px 0 no-repeat;
+}
