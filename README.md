@@ -15,6 +15,3 @@ http://michaelgolus.com/
 
 
 The original project appears to be inactive (last commit 2012) so I have added the project on github to make a few changes.
-=======
-# jQuery-slickswitch
-A simple jQuery plugin to transform simple check boxes into stylish switches
