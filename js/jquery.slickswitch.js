@@ -4,6 +4,8 @@
 * For documentation, see http://michaelgolus.com/projects/slickswitch/
 *
 * Copyright (c) 2011 Matt and Michael Golus
+* Copyright (c) 2015 Luke Kirby
+*
 * Dual licensed under the MIT and GPL licenses:
 * http://www.opensource.org/licenses/mit-license.php
 * http://www.gnu.org/licenses/gpl.html
@@ -57,13 +59,15 @@
                 });
 
                 self.bind('ss-update', function (o, disableAnimation) {
-                	var speed = 1000;
-                    if (self.is(':checked')) {
-                        $('span:eq(0)', div).show(settings.useAnimation && !disableAnimation ? speed : 0);
-                        //$('span:eq(1)', div).animate({ left: div.width() - $('span:eq(1)', div).outerWidth(true) + 'px' }, settings.useAnimation && !disableAnimation ? speed : 0);
+
+					if ( self.is(':checked') ) {
+						setTimeout(function() {
+							$('span', div).show(disableAnimation ? 0 : settings.animationDuration || 500);
+						}, 10);
                     } else {
-                        $('span:eq(0)', div).hide(settings.useAnimation && !disableAnimation ? speed : 0);
-                        //$('span:eq(1)', div).animate({ left: '0px' }, settings.useAnimation && !disableAnimation ? speed : 0);
+						setTimeout(function() {
+							$('span', div).hide(disableAnimation ? 0 : settings.animationDuration || 500);
+						}, 10);
                     }
                 });
 
