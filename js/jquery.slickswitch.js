@@ -10,7 +10,7 @@
 * http://www.opensource.org/licenses/mit-license.php
 * http://www.gnu.org/licenses/gpl.html
 *
-* Version: 1.0
+* Version: 1.1
 */
 
 (function ($) {
