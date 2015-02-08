@@ -73,26 +73,34 @@
                 });
 
                 self.bind('ss-update', function (o, disableAnimation) {
-
+				
+					// Hide or show the slider. Uses setTimeout to ensure hide() and show() are fired properly
 					if ( self[0].checked ) {
 						setTimeout(function() {
-							$('span', div).show(disableAnimation ? 0 : settings.animationDuration || 500);
+							$('span', div).eq(0).show(disableAnimation ? 0 : settings.animationDuration || 500);
+							$('span', div).eq(1).animate({ left: div.width() - $('span', div).eq(1).outerWidth(true) + 'px' }, 
+															disableAnimation ? 0 : settings.animationDuration || 500);
 						}, 10);
                     } else {
 						setTimeout(function() {
-							$('span', div).hide(disableAnimation ? 0 : settings.animationDuration || 500);
+							$('span', div).eq(0).hide(disableAnimation ? 0 : 100);
+							$('span', div).eq(1).animate({ left: '0px' }, disableAnimation ? 0 : 100);
 						}, 10);
                     }
 
                 });
 
 				// Use native DOM method to create span element instead of using $('<span>').addClass('...')
-				var switchElem = document.createElement("span");
-					switchElem.className = settings.cssPrefix + 'on';
+				var switchElemSlider = document.createElement("span");
+				switchElemSlider.className = settings.cssPrefix + 'on';
+					
+				var switchElemRound = document.createElement("span");
+				switchElemRound.className = settings.cssPrefix + 'slider';
 				
 				self.after(	
 					div.attr('class', self.attr('class'))
-						.append(switchElem)
+						.append(switchElemSlider)
+						.append(switchElemRound)
 						.on("click", function() {
 							self.trigger('ss-toggle');
 							return false;

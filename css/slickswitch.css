@@ -14,3 +14,20 @@
 	height: 17px;
 	background: url(../icon/slickswitch.png) -30px 0 no-repeat;
 }
+
+.switch .ss-slider {
+	position: absolute;
+	left: 0px;
+	width: 15px;
+	height: 16px;
+	margin: 0 1px;
+	background: url(../icon/slickswitch.png) -60px 0 no-repeat;
+}
+
+.switch.icons {
+	background-position: 0 -17px;
+}
+
+.switch.icons .ss-on {
+	background: url(../icon/slickswitch.png) -30px -17px no-repeat;
+}
